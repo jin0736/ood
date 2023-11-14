@@ -8,6 +8,7 @@ public:
     virtual void what() {   //자신이 어떤 타입인지 출력하는 함수
         std::cout << s << std::endl;
     }
+    virtual ~CEO() {} //가상 소멸자
 };
 
 class CPO { //rank2 클래스
@@ -17,6 +18,7 @@ public:
     virtual void what() {
         std::cout << s << std::endl;
     }
+    virtual ~CPO() {} //가상 소멸자
 };
 
 //rank3 클래스, rank1 rank2 클래스를 다중 상속 받음
@@ -27,6 +29,7 @@ public:
     void what() {
         std::cout << s << std::endl;
     }
+    ~Manager() {} //소멸자
 };
 
 //rank 4 클래스, rank3 클래스를 상속받음
@@ -37,6 +40,7 @@ public:
     void what() {
         std::cout << s << std::endl;
     }
+    ~Staff() {} //소멸자
 };
 
 int main() {
@@ -55,6 +59,10 @@ int main() {
     assert(staff != nullptr);
     assert(staff2 != nullptr);
     assert(manager != nullptr);
+
+    //delete를 사용하여 동적으로 할당된 메모리 해제
+    delete cpo;
+    delete ceo;
 
     return 0;
 }

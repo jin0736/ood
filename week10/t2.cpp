@@ -53,5 +53,9 @@ int main() {
     redCircle->draw();
     greenCircle->draw();
 
+    //메모리 누수 방지를 위해 동적으로 할당한 객체들을 삭제
+    delete redCircle;
+    delete greenCircle;
+
     return 0;
 }

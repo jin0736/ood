@@ -107,5 +107,11 @@ int main() {
     Shape* shape4 = shapeFactory1->getShape("SQUARE");
     shape4->draw();
 
+    //메모리 누수 방지를 위해 동적으로 할당한 객체들을 삭제
+    delete shape1;
+    delete shape2;
+    delete shape3;
+    delete shape4;
+
     return 0;
 }
